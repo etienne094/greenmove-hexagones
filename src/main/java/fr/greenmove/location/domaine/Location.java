@@ -1,8 +1,12 @@
 package fr.greenmove.location.domaine;
 
+import fr.greenmove.location.domaine.evenements.LocationTerminee;
+
+import java.time.Duration;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalLong;
 
 public final class Location {
 
@@ -27,6 +31,43 @@ public final class Location {
         this.statut = Objects.requireNonNull(statut, "statut");
     }
 
+    public static Location demarrer (IdLocation id, IdUsager usager, Vehicule vehicule, Instant debut){
+        if(!vehicule.disponible()){
+            throw new VehiculeIndisponible(vehicule.id());
+        }
+        return new Location(id, usager, vehicule.id(), vehicule.type(), debut, null, Statut.EN_COURS);
+    }
+
+    public LocationTerminee terminer (Instant fin){
+        if(statut == Statut.TERMINEE){
+            throw new LocationDejaTerminee(id);
+        }
+        if(fin.isBefore(debut)){
+            throw new FinAnterieureAuDebut(debut, fin);
+        }
+        this.fin = fin;
+        this.statut = Statut.TERMINEE;
+        return new LocationTerminee(id.valeur(), usager.valeur(), type.name(), debut, fin);
+    }
+
+    public OptionalLong dureeMinutes(){
+        if (fin == null){
+            return OptionalLong.empty();
+        }
+        return OptionalLong.of(Duration.between(debut, fin).toMinutes());
+    }
+
+    public boolean estEnCours(){
+        return statut == Statut.EN_COURS;
+    }
+
+    //recharge une location qui existe déjà en base, telle qu'elle a été enregistrée
+    public static Location reconstituer(IdLocation id, IdUsager usager, IdVehicule vehicule, TypeVehicule type,
+                                        Instant debut, Instant fin, Statut statut){
+        return new Location(id, usager, vehicule, type, debut, fin, statut);
+    }
+
+    //Getters
     public IdLocation id(){return id;}
     public IdUsager usager(){return usager;}
     public IdVehicule vehicule(){return vehicule;}
@@ -34,5 +75,7 @@ public final class Location {
     public Instant debut(){return debut;}
     public Optional<Instant> fin() {return Optional.ofNullable(fin);}
     public Statut statut() {return statut;}
+
+
 
 }
