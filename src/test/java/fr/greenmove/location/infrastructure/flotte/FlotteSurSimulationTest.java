@@ -1,10 +1,10 @@
 package fr.greenmove.location.infrastructure.flotte;
 
 import fr.greenmove.exterieur.FlotteEnMemoire;
-import fr.greenmove.location.domaine.Flotte;
-import fr.greenmove.location.domaine.IdVehicule;
-import fr.greenmove.location.domaine.TypeVehicule;
-import fr.greenmove.location.domaine.Vehicule;
+import fr.greenmove.location.domaine.ports.Flotte;
+import fr.greenmove.location.domaine.models.IdVehicule;
+import fr.greenmove.location.domaine.models.TypeVehicule;
+import fr.greenmove.location.domaine.models.Vehicule;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

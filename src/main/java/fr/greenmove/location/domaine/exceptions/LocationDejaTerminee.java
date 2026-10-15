@@ -1,4 +1,6 @@
-package fr.greenmove.location.domaine;
+package fr.greenmove.location.domaine.exceptions;
+
+import fr.greenmove.location.domaine.models.IdLocation;
 
 public class LocationDejaTerminee extends RuntimeException{
     public LocationDejaTerminee(IdLocation id){

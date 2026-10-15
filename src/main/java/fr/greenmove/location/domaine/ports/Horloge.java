@@ -1,4 +1,4 @@
-package fr.greenmove.location.domaine;
+package fr.greenmove.location.domaine.ports;
 
 import java.time.Instant;
 

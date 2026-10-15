@@ -1,4 +1,4 @@
-package fr.greenmove.location.domaine;
+package fr.greenmove.location.domaine.exceptions;
 
 import java.time.Instant;
 

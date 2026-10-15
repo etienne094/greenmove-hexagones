@@ -1,4 +1,4 @@
-package fr.greenmove.location.domaine;
+package fr.greenmove.location.domaine.models;
 
 public record IdUsager(String valeur) {
     public IdUsager{

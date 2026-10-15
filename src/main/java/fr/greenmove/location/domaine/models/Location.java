@@ -1,6 +1,9 @@
-package fr.greenmove.location.domaine;
+package fr.greenmove.location.domaine.models;
 
 import fr.greenmove.location.domaine.evenements.LocationTerminee;
+import fr.greenmove.location.domaine.exceptions.FinAnterieureAuDebut;
+import fr.greenmove.location.domaine.exceptions.LocationDejaTerminee;
+import fr.greenmove.location.domaine.exceptions.VehiculeIndisponible;
 
 import java.time.Duration;
 import java.time.Instant;

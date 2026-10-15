@@ -1,4 +1,4 @@
-package fr.greenmove.location.domaine;
+package fr.greenmove.location.domaine.ports;
 
 import fr.greenmove.location.domaine.evenements.LocationTerminee;
 
