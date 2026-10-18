@@ -2,11 +2,13 @@ package fr.greenmove.location.infrastructure.config;
 
 import fr.greenmove.exterieur.FlotteEnMemoire;
 import fr.greenmove.exterieur.UsagersEnMemoire;
+import fr.greenmove.facturation.application.ConsulterImpayes;
 import fr.greenmove.location.application.ServiceLocation;
 import fr.greenmove.location.domaine.ports.*;
 import fr.greenmove.location.infrastructure.evenements.PublicationSurBusSpring;
 import fr.greenmove.location.infrastructure.flotte.FlotteSurSimulation;
 import fr.greenmove.location.infrastructure.horloge.HorlogeSysteme;
+import fr.greenmove.location.infrastructure.impayes.ImpayesParFacturation;
 import fr.greenmove.location.infrastructure.persistance.LocationJpaRepository;
 import fr.greenmove.location.infrastructure.persistance.LocationsJpa;
 import fr.greenmove.location.infrastructure.usagers.UsagersSurSimulation;
@@ -44,15 +46,8 @@ public class ConfigurationLocation {
         return new HorlogeSysteme();
     }
 
-    // @Bean
-    // Impayes impayes(ConsulterImpayes consulterImpayes) { return new ImpayesParFacturation(consulterImpayes); }
-    //
-
-    //AJOUTER TEMPORAIREMENT, EN ATTENTE FACTURATION
-    @Bean
-    Impayes impayes(){
-        return usager -> false;
-    }
+     @Bean
+     Impayes impayes(ConsulterImpayes consulterImpayes) { return new ImpayesParFacturation(consulterImpayes); }
 
      @Bean
      PublicationEvenements publication(ApplicationEventPublisher bus) {
