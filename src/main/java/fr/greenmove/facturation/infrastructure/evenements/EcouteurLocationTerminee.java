@@ -7,8 +7,6 @@ import fr.greenmove.facturation.domaine.TypeVehicule;
 import fr.greenmove.location.domaine.evenements.LocationTerminee;
 import org.springframework.context.event.EventListener;
 
-import java.time.Duration;
-
 public class EcouteurLocationTerminee {
 
     private final EmettreFacture emettreFacture;
@@ -22,8 +20,7 @@ public class EcouteurLocationTerminee {
         emettreFacture.emettre(
                 new IdUsager(evenement.idUsager()),
                 new IdLocation(evenement.idLocation()),
-                // TODO après la fusion : remplacer par evenement.dureeMinutes(), calculée par Location
-                Duration.between(evenement.debut(), evenement.fin()).toMinutes(),
+                evenement.dureeMinutes(),
                 TypeVehicule.valueOf(evenement.typeVehicule()));
     }
 }

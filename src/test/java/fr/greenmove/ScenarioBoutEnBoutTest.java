@@ -1,7 +1,6 @@
 package fr.greenmove;
 
 import com.jayway.jsonpath.JsonPath;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -24,7 +23,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @SpringBootTest
 @AutoConfigureMockMvc
-@Disabled("À activer quand les deux hexagones sont câblés (annexe C de l'énoncé)")
 class ScenarioBoutEnBoutTest {
 
     @Autowired

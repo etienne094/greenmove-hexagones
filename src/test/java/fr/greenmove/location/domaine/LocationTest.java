@@ -66,7 +66,7 @@ public class LocationTest {
 
         LocationTerminee evt = l.terminer(fin);
 
-        assertEquals(new LocationTerminee("L-0001", "u1", "VELO", DEBUT, fin), evt);
+        assertEquals(new LocationTerminee("L-0001", "u1", "VELO", DEBUT, fin, 10), evt);
     }
 
 }
