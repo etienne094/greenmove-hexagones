@@ -50,7 +50,7 @@ public final class Location {
         }
         this.fin = fin;
         this.statut = Statut.TERMINEE;
-        return new LocationTerminee(id.valeur(), usager.valeur(), type.name(), debut, fin);
+        return new LocationTerminee(id.valeur(), usager.valeur(), type.name(), debut, fin, dureeMinutes().getAsLong());
     }
 
     public OptionalLong dureeMinutes(){

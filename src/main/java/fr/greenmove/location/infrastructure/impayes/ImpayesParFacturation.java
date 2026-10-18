@@ -1,6 +1,6 @@
 package fr.greenmove.location.infrastructure.impayes;
 
-import fr.greenmove.facturation.application.ConsulterImpayes;
+import fr.greenmove.facturation.application.ports.ConsulterImpayes;
 import fr.greenmove.location.domaine.models.IdUsager;
 import fr.greenmove.location.domaine.ports.Impayes;
 

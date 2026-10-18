@@ -2,7 +2,7 @@ package fr.greenmove.location.infrastructure.config;
 
 import fr.greenmove.exterieur.FlotteEnMemoire;
 import fr.greenmove.exterieur.UsagersEnMemoire;
-import fr.greenmove.facturation.application.ConsulterImpayes;
+import fr.greenmove.facturation.application.ports.ConsulterImpayes;
 import fr.greenmove.location.application.ServiceLocation;
 import fr.greenmove.location.domaine.ports.*;
 import fr.greenmove.location.infrastructure.evenements.PublicationSurBusSpring;

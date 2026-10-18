@@ -15,6 +15,8 @@ import java.time.Instant;
  * @param typeVehicule {@code VELO} ou {@code TROTTINETTE}
  * @param debut        le début de la location
  * @param fin          la fin de la location
+ * @param dureeMinutes la durée en minutes entières, calculée par Location selon sa règle
  */
-public record LocationTerminee(String idLocation, String idUsager, String typeVehicule, Instant debut, Instant fin) {
+public record LocationTerminee(String idLocation, String idUsager, String typeVehicule, Instant debut, Instant fin,
+                               long dureeMinutes) {
 }
