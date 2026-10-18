@@ -1,4 +1,4 @@
-package fr.greenmove.facturation.application;
+package fr.greenmove.facturation.application.ports;
 
 /**
  * Port entrant de Facturation appelé par Location avant de démarrer une location : c'est le second
